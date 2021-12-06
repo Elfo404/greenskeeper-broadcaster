@@ -15,7 +15,6 @@ void setup()
 {
   // Serial.begin(9600);
   dht.begin();
-  BLE.setLocalName("BLE Sensor");
   BLE.setConnectable(false);
   analogReadResolution(ANALOG_READ_RESOLUTION);
 }
@@ -61,7 +60,7 @@ void loop()
   {
     if (!BLE.begin())
     {
-      Serial.println("starting BLE failed!");
+      // Serial.println("starting BLE failed!");
     }
 
     if (counter == 255)
@@ -99,7 +98,7 @@ void loop()
     BLE.advertise();
     delay(1000 * 10);
 
-    //
+    // Stop advertising and turning off bluetooth (ideally)
     BLE.stopAdvertise();
     BLE.end();
 
